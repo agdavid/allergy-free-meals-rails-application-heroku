@@ -1,0 +1,44 @@
+<div id="user_show" class="row">
+  <div>
+    <div class="panel panel-default">
+
+      <div class="panel-heading user_image">
+        
+        <div class="row">
+          <div class="col-md-5">
+            <% if @user.image? %>
+              <%= image_tag @user.image.url(:medium) %>
+            <% end %>  
+          </div>
+          <div class="col-md-7">
+            <h1><%= @user.name %></h1>
+            <h2 class="motto">"<%= @user.motto %>"</h2>
+            <h3>Allergens avoiding:</h3>
+            <% @user.allergens.each do |allergen| %>
+              <%= allergen.name %>&nbsp;
+            <% end %></br>
+            <% if user_signed_in? %>
+              <%= link_to "Create New Recipe", new_user_recipe_path(@user), class: "btn btn-warning" %>
+            <% end %>
+            <br></br>
+          </div>
+        </div>
+      </div> <!-- /.panel-heading -->
+
+      <div id="contributed" class="panel-body">
+        <h3>Contributed Recipes</h3>
+        <% if @user_recipes %>
+          <%= render partial: "recipes/recipe_bricks", locals: {recipes: @user_recipes} %>
+        <% end %>
+      </div>
+      
+      <div id="favorited" class="panel-footer">
+        <h3>Favorite Recipes</h3>
+        <% if @user_favorites %>
+          <%= render partial: "recipes/favorited_recipe_bricks", locals: {recipes: @user_favorites } %>
+        <% end %>
+      </div>
+
+    </div><!-- /.panel -->
+  </div><!-- /col-md-8 -->
+</div> <!-- /.row -->

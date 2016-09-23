@@ -1,0 +1,28 @@
+<div class="row">
+  <div id="allergen_search" class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Select Allergens to Avoid:</h1>
+      </div>
+      <div class="panel-body">
+      
+        <%= form_tag(search_allergens_path, method: "post") do %>  
+          <div class="form-group">
+            <% @allergens.each do |allergen| %>
+              <div class="allergen_wrapper">
+                <%= check_box_tag "allergen_ids[]", allergen.id %>&nbsp;&nbsp;<%= image_tag allergen.image.url(:thumb) %>&nbsp;&nbsp;
+              </div>
+            <% end %>  
+          </div>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      
+      </div>
+    </div> 
+  </div>
+</div>
+
+<!-- Conditional rendering of recipe bricks, if search results (@recipes) returned -->
+<% if @recipes %>
+  <%= render partial: "recipes/recipe_bricks", locals: {recipes: @recipes} %>
+<% end %> 

@@ -1,0 +1,63 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require 'masonry/transitions'
+ *= require_tree .
+ *= require_self
+ */
+ 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.fa-facebook-square {
+  color: #2C4388;
+}  
+
+nav.navbar {
+  background: #a7dcdb;
+  a.navbar-brand {
+    color: #ffffff;
+    span {
+      color: #757575
+    }
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #F6F7E7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+}
+
+#main-container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto 100px;
+}
+
+#footer {
+  height: auto;
+  width: 100%;
+  font-size: 1em;
+  color: #757575;
+  background-color: #a7dcdb;
+  text-align: center;
+  padding: 10px 10px;
+}
+

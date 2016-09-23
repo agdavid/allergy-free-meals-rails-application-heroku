@@ -1,0 +1,38 @@
+<div id="admin_index" class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      
+      <div class="panel-heading">
+        <h1>Admin Panel: Recipe Index</h1>  
+      </div>
+      
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>User</th>
+              <th>View</th>
+              <th>Edit</th>
+              <th>Destroy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @recipes.each do |recipe| %>
+              <tr>
+                <td><%= recipe.id %></td>
+                <td><%= recipe.title %></td>
+                <td><%= recipe.user.name %></td>
+                <td><%= link_to "Show", recipe_path(recipe), class: "btn btn-default btn-sm" %></td>
+                <td><%= link_to "Edit", edit_recipe_path(recipe), class: "btn btn-primary btn-sm" %></td>
+                <td><%= link_to "Delete", recipe_path(recipe), method:"delete", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    
+    </div><!-- /.panel -->    
+  </div><!-- /.col -->
+</div> <!-- /.row-->
