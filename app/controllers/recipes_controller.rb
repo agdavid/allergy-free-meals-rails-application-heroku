@@ -22,8 +22,8 @@ class RecipesController < ApplicationController
       end
     else
       @recipes = Recipe.all
-      @favorite_user_recipe = Recipe.favorite_user_recipe.take unless Recipe.favorite_user_recipe.take == nil
-      @most_upvoted_recipe = Recipe.most_upvoted_recipe.take unless Recipe.most_upvoted_recipe.take == nil
+      #@favorite_user_recipe = Recipe.favorite_user_recipe.take unless Recipe.favorite_user_recipe.take == nil
+      #@most_upvoted_recipe = Recipe.most_upvoted_recipe.take unless Recipe.most_upvoted_recipe.take == nil
     end
   end
 
