@@ -16,6 +16,3 @@ $ ->
       itemSelector: '.box',
       isFitWidth: true
     });
-$ ->
-  $('#page-refresh').click ->
-      window.location.href = 'https://allergyfreemeals.herokuapp.com/'  
