@@ -1,6 +1,5 @@
 $(function() {
 
-  function masonryFunctions() {
     $('#recipes').imagesLoaded(function() {
       $('#recipes').masonry({
         itemSelector: '.box',
@@ -21,12 +20,5 @@ $(function() {
           isFitWidth: true,
           });
         });
-  };
-
-  masonryFunctions();
-
-  $('#page-refresh').click(
-      masonryFunctions()
-    });
 
 });
