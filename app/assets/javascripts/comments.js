@@ -1,6 +1,4 @@
-
-(function() { 
-// $(function() {
+$(function() {
 
   // 'Show All Comments' link
   $('.js-loadComments').on('click', loadComments);
@@ -73,5 +71,4 @@
     });
     
   });
-// });
-})()
+});

@@ -1,29 +1,27 @@
-(function() {
+$(function() {
+  $('#recipes').imagesLoaded(function() {
+    $('#recipes').masonry({
+      itemSelector: '.box',
+      isFitWidth: true,
+      });
+    });
 
-  // $(function() {
-    $('#recipes').imagesLoaded(function() {
-      $('#recipes').masonry({
+  $('#favorited-recipes').imagesLoaded(function() {
+      $('#favorited-recipes').masonry({
         itemSelector: '.box',
         isFitWidth: true,
         });
       });
 
-    $('#favorited-recipes').imagesLoaded(function() {
-        $('#favorited-recipes').masonry({
-          itemSelector: '.box',
-          isFitWidth: true,
-          });
+  $('#users').imagesLoaded(function() {
+      $('#users').masonry({
+        itemSelector: '.box',
+        isFitWidth: true,
         });
+      });
 
-    $('#users').imagesLoaded(function() {
-        $('#users').masonry({
-          itemSelector: '.box',
-          isFitWidth: true,
-          });
-        });
-  // });
-    $('#page-refresh').click(function() {
-      window.location.href=window.location.href;
-    });
+  $('#page-refresh').click(function() {
+    window.location.href=window.location.href;
+  });
 
-})()
+});
