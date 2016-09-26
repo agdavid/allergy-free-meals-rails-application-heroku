@@ -1,0 +1,30 @@
+I"X(function() {
+  $(function() {
+    return $('#recipes').imagesLoaded(function() {
+      return $('#recipes').masonry({
+        itemSelector: '.box',
+        isFitWidth: true
+      });
+    });
+  });
+
+  $(function() {
+    return $('#favorited-recipes').imagesLoaded(function() {
+      return $('#favorited-recipes').masonry({
+        itemSelector: '.box',
+        isFitWidth: true
+      });
+    });
+  });
+
+  $(function() {
+    return $('#users').imagesLoaded(function() {
+      return $('#users').masonry({
+        itemSelector: '.box',
+        isFitWidth: true
+      });
+    });
+  });
+
+}).call(this);
+:ET
