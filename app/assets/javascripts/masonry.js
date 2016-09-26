@@ -24,7 +24,7 @@ $(function() {
     $('#page-refresh').click(function() {
       var url = "https://allergyfreemeals.herokuapp.com/";
       window.location.href = url;
-      location.reload();
+      location.reload(true);
     });
     
 });
