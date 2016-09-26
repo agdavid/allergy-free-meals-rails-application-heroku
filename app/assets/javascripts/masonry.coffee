@@ -4,16 +4,19 @@
 
 $ ->
   $('#recipes').imagesLoaded ->
-    $('#recipes').masonry
+    $('#recipes').masonry({
       itemSelector: '.box'
       isFitWidth: true
+      });
 $ ->
   $('#favorited-recipes').imagesLoaded ->
-    $('#favorited-recipes').masonry
+    $('#favorited-recipes').masonry({
       itemSelector: '.box'
       isFitWidth: true
+      });
 $ ->
   $('#users').imagesLoaded ->
-    $('#users').masonry
+    $('#users').masonry({
       itemSelector: '.box'
       isFitWidth: true
+      });
