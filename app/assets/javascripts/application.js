@@ -16,6 +16,7 @@
 //= require bootstrap
 //= require masonry/jquery.masonry
 //= require cocoon
+//= require turbolinks
 //= require_tree .
 
 
