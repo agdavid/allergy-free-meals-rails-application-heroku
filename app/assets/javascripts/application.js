@@ -19,7 +19,5 @@
 //= require cocoon
 //= require comments
 //= require masonry
-//= require reload
-
 
 
