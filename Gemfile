@@ -67,6 +67,9 @@ gem 'pundit', '~> 1.1'
 # Use for json serialization
 gem 'active_model_serializers'
 
+# Use for cloud storage of Paperclip images
+gem 'aws-sdk', '~> 2.6', '>= 2.6.3'
+
 # Use postgres for Heroku
 group :production do 
   gem 'pg'
