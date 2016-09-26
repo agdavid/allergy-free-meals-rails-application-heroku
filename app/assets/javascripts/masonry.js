@@ -25,8 +25,8 @@ $(function() {
 
   masonryFunctions();
 
-  $('#page-refresh').click(function() {
-    location.reload();
+  $('#page-refresh').click(
+      masonryFunctions()
     });
 
 });
