@@ -18,5 +18,4 @@ $ ->
     });
 $ ->
   $('#page-refresh').click ->
-      var url = "https://allergyfreemeals.herokuapp.com/";
-      window.location.href = url  
+      window.location.href = 'https://allergyfreemeals.herokuapp.com/'  
