@@ -1,4 +1,5 @@
 $(function() {
+
   $('#recipes').imagesLoaded(function() {
     $('#recipes').masonry({
       itemSelector: '.box',
@@ -20,8 +21,8 @@ $(function() {
         });
       });
 
-  $('#page-refresh').click(function() {
-    window.location.href=window.location.href;
-  });
+  // $('#page-refresh').click(function() {
+  //   window.location.href=window.location.href;
+  // });
 
 });
