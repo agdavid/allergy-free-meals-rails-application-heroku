@@ -3,20 +3,23 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('#recipes').imagesLoaded ->
+  $('#recipes').imagesLoaded(function() {
     $('#recipes').masonry({
       itemSelector: '.box'
       isFitWidth: true
       });
+    });
 $ ->
-  $('#favorited-recipes').imagesLoaded ->
+  $('#favorited-recipes').imagesLoaded(function() {
     $('#favorited-recipes').masonry({
       itemSelector: '.box'
       isFitWidth: true
       });
+    });
 $ ->
-  $('#users').imagesLoaded ->
+  $('#users').imagesLoaded(function() {
     $('#users').masonry({
       itemSelector: '.box'
       isFitWidth: true
       });
+    });
