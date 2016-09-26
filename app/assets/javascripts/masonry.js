@@ -23,7 +23,7 @@
         });
   // });
     $('#page-refresh').click(function() {
-      location.reload();
+      location.reload(true);
     });
 
 })()
