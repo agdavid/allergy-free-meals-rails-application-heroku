@@ -17,8 +17,9 @@
 //= require masonry/jquery.masonry
 //= require turbolinks
 //= require cocoon
-//= comments
+//= require comments
 //= require masonry
+//= require reload
 
 
 
