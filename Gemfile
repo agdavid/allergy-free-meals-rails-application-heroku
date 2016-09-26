@@ -68,13 +68,8 @@ gem 'pundit', '~> 1.1'
 # Use for json serialization
 gem 'active_model_serializers'
 
-<<<<<<< HEAD
 # Use Amazon gem for cloud storage
 gem 'aws-sdk'
-=======
-# Use for cloud storage of Paperclip images
-gem 'aws-sdk', '< 2.0'
->>>>>>> e860596924745a55c0e5403b4a06ccb7ae40cfc2
 
 # Use postgres for Heroku
 group :production do 
