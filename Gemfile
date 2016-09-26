@@ -70,7 +70,7 @@ gem 'active_model_serializers'
 
 # Use postgres for Heroku
 group :production do 
-  gem 'pg'
+  gem 'pg', '~> 0.18.4'
 end
 
 # Use 12factor gem per Heroku documentation
