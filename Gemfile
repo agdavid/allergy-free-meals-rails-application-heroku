@@ -68,9 +68,6 @@ gem 'pundit', '~> 1.1'
 # Use for json serialization
 gem 'active_model_serializers'
 
-# Use Amazon gem for cloud storage
-gem 'aws-sdk'
-
 # Use postgres for Heroku
 group :production do 
   gem 'pg'
