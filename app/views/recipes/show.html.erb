@@ -38,7 +38,12 @@
           
           <div class="col-md-6">
             <p class="user">Submitted with <i class="fa fa-heart" aria-hidden="true"></i> by
-              <%= @recipe.user.name %></p>
+              <% if @recipe.user.name.blank? %>
+                Anonymous Chef
+              <% else %>  
+                <%= @recipe.user.name %>              
+              <% end %> 
+            </p>
           </div>
 
           <div class="col-md-6">
