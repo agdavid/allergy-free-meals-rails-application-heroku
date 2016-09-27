@@ -1261,3 +1261,790 @@ Processing by RecipesController#index as HTML
   Rendered shared/_navigation.html.erb (0.9ms)
   Rendered shared/_footer.html.erb (0.1ms)
 Completed 200 OK in 102ms (Views: 99.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:41:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.9ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (125.0ms)
+  Rendered recipes/index.html.erb within layouts/application (176.9ms)
+  Rendered shared/_navigation.html.erb (2.5ms)
+  Rendered shared/_footer.html.erb (0.5ms)
+Completed 200 OK in 3070ms (Views: 3034.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:41:16 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (9.2ms)
+  Rendered recipes/index.html.erb within layouts/application (10.8ms)
+  Rendered shared/_navigation.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 75ms (Views: 73.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2016-09-27 08:41:16 -0400
+
+
+Started GET "/users/1/recipes/1" for ::1 at 2016-09-27 08:41:22 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ? AND "recipes"."id" = ? LIMIT 1[0m  [["user_id", 1], ["id", 1]]
+  [1m[35mAllergen Load (0.6ms)[0m  SELECT "allergens".* FROM "allergens" INNER JOIN "recipe_allergens" ON "allergens"."id" = "recipe_allergens"."allergen_id" WHERE "recipe_allergens"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.4ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  Rendered recipes/show.html.erb within layouts/application (40.0ms)
+  Rendered shared/_navigation.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 114ms (Views: 97.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/recipes/1.json" for ::1 at 2016-09-27 08:41:27 -0400
+Processing by RecipesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+[active_model_serializers]   [1m[35mComment Load (0.5ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = ?  [["recipe_id", 1]]
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (18.88ms)
+Completed 200 OK in 44ms (Views: 39.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/recipes/1/comments/1.json" for ::1 at 2016-09-27 08:41:30 -0400
+Processing by CommentsController#show as JSON
+  Parameters: {"recipe_id"=>"1", "id"=>"1"}
+  [1m[36mComment Load (0.2ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT 1[0m  [["id", 1]]
+[active_model_serializers]   [1m[35mRecipe Load (0.3ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+[active_model_serializers] Rendered CommentSerializer with ActiveModelSerializers::Adapter::Attributes (11.58ms)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:46:08 -0400
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (8.4ms)
+  Rendered recipes/index.html.erb within layouts/application (11.2ms)
+  Rendered shared/_navigation.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 143ms (Views: 141.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/masonry/transitions.self-a7dd920491429cc09dda36f003350cf98f5cec3c45d00888fab83293dce6ce92.css?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/devise.self-02d4edf54aedc35c83621a8b84b34335f090fa31cc538e1303022d30b00cca81.css?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/admin.self-4ec2c5d08f51872fb5cfd6f340b72cc63f62bb01c142c5d0cea36837329aeaa2.css?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/search.self-6f54a75e5f402fb1aaa4e207bc7da2f5bb81c9e1ee96710f6ddf3bc6d63bc00f.css?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/recipes.self-8ab832b9a1017cd511e130150c2f532f5135c69b4781e1c2d5e54fdf4b243273.css?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/static.self-3ed7080746724459018b435de2a8d377f893583910613a646596f2cdce53b6ab.css?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/users.self-f6779245bc38f80637ddf7c79ed6eecd37290798c136ff57f6da605fdab116bf.css?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/application.self-b0d8864aeeef985ccae71fa5bdd066a8c74aee66934198a41951cd6930aee7a0.css?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/masonry.self-75fd53a3c82658e4571d1d91dab9b93f0228bed3b5bfcb666ebc8a4115242820.js?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/masonry/jquery.masonry.self-e55a2ca40f0bd20129930439c10a6b8c5dd26787b41fd8427db5b9da8c2af52f.js?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/cocoon.self-6874ad698cefd21cc1119b773550f61b5c1a60396460f015222af59293affe80.js?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/comments.self-ad8a0d7dddd6a5ee492a9742244f69e7d1fd2cce03186ed0a579f13ae394c194.js?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2016-09-27 08:46:08 -0400
+
+
+Started GET "/" for ::1 at 2016-09-27 08:47:15 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (8.3ms)
+  Rendered recipes/index.html.erb within layouts/application (10.0ms)
+  Rendered shared/_navigation.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 129ms (Views: 127.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/masonry/transitions.self-a7dd920491429cc09dda36f003350cf98f5cec3c45d00888fab83293dce6ce92.css?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/recipes.self-8ab832b9a1017cd511e130150c2f532f5135c69b4781e1c2d5e54fdf4b243273.css?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/admin.self-4ec2c5d08f51872fb5cfd6f340b72cc63f62bb01c142c5d0cea36837329aeaa2.css?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/static.self-3ed7080746724459018b435de2a8d377f893583910613a646596f2cdce53b6ab.css?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/search.self-6f54a75e5f402fb1aaa4e207bc7da2f5bb81c9e1ee96710f6ddf3bc6d63bc00f.css?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/devise.self-02d4edf54aedc35c83621a8b84b34335f090fa31cc538e1303022d30b00cca81.css?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/users.self-f6779245bc38f80637ddf7c79ed6eecd37290798c136ff57f6da605fdab116bf.css?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/application.self-b0d8864aeeef985ccae71fa5bdd066a8c74aee66934198a41951cd6930aee7a0.css?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/masonry.self-f7a033c9caae02d50e376a2f6e7fed47de0403511ebbcc2f15112787fce397de.js?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for ::1 at 2016-09-27 08:47:15 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-27 08:47:16 -0400
+
+
+Started GET "/assets/cocoon.self-6874ad698cefd21cc1119b773550f61b5c1a60396460f015222af59293affe80.js?body=1" for ::1 at 2016-09-27 08:47:16 -0400
+
+
+Started GET "/assets/comments.self-ad8a0d7dddd6a5ee492a9742244f69e7d1fd2cce03186ed0a579f13ae394c194.js?body=1" for ::1 at 2016-09-27 08:47:16 -0400
+
+
+Started GET "/assets/masonry/jquery.masonry.self-e55a2ca40f0bd20129930439c10a6b8c5dd26787b41fd8427db5b9da8c2af52f.js?body=1" for ::1 at 2016-09-27 08:47:16 -0400
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2016-09-27 08:47:16 -0400
+
+
+Started GET "/" for ::1 at 2016-09-27 08:48:50 -0400
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (7.2ms)
+  Rendered recipes/index.html.erb within layouts/application (9.0ms)
+  Rendered shared/_navigation.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 127ms (Views: 126.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/admin.self-4ec2c5d08f51872fb5cfd6f340b72cc63f62bb01c142c5d0cea36837329aeaa2.css?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/masonry/transitions.self-a7dd920491429cc09dda36f003350cf98f5cec3c45d00888fab83293dce6ce92.css?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/masonry.self-310355438d41cc0cd45f5674ca41f8f75c464d5a6bbd3e4eb05877816c98f24e.js?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/devise.self-02d4edf54aedc35c83621a8b84b34335f090fa31cc538e1303022d30b00cca81.css?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/recipes.self-8ab832b9a1017cd511e130150c2f532f5135c69b4781e1c2d5e54fdf4b243273.css?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/search.self-6f54a75e5f402fb1aaa4e207bc7da2f5bb81c9e1ee96710f6ddf3bc6d63bc00f.css?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/static.self-3ed7080746724459018b435de2a8d377f893583910613a646596f2cdce53b6ab.css?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/users.self-f6779245bc38f80637ddf7c79ed6eecd37290798c136ff57f6da605fdab116bf.css?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/application.self-b0d8864aeeef985ccae71fa5bdd066a8c74aee66934198a41951cd6930aee7a0.css?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/masonry/jquery.masonry.self-e55a2ca40f0bd20129930439c10a6b8c5dd26787b41fd8427db5b9da8c2af52f.js?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/cocoon.self-6874ad698cefd21cc1119b773550f61b5c1a60396460f015222af59293affe80.js?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/comments.self-ad8a0d7dddd6a5ee492a9742244f69e7d1fd2cce03186ed0a579f13ae394c194.js?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2016-09-27 08:48:50 -0400
+
+
+Started GET "/users" for ::1 at 2016-09-27 08:48:53 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "recipes" WHERE "recipes"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "recipes" INNER JOIN "favorite_recipes" ON "recipes"."id" = "favorite_recipes"."recipe_id" WHERE "favorite_recipes"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/_user_bricks.html.erb (14.3ms)
+  Rendered users/index.html.erb within layouts/application (15.9ms)
+  Rendered shared/_navigation.html.erb (1.2ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 68ms (Views: 66.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for ::1 at 2016-09-27 08:49:52 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "recipes" INNER JOIN "favorite_recipes" ON "recipes"."id" = "favorite_recipes"."recipe_id" WHERE "favorite_recipes"."user_id" = ?  [["user_id", 1]]
+  Rendered users/_user_bricks.html.erb (6.0ms)
+  Rendered users/index.html.erb within layouts/application (8.1ms)
+  Rendered shared/_navigation.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.4ms)
+Completed 200 OK in 130ms (Views: 129.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/masonry/transitions.self-a7dd920491429cc09dda36f003350cf98f5cec3c45d00888fab83293dce6ce92.css?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/admin.self-4ec2c5d08f51872fb5cfd6f340b72cc63f62bb01c142c5d0cea36837329aeaa2.css?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/devise.self-02d4edf54aedc35c83621a8b84b34335f090fa31cc538e1303022d30b00cca81.css?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/recipes.self-8ab832b9a1017cd511e130150c2f532f5135c69b4781e1c2d5e54fdf4b243273.css?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/static.self-3ed7080746724459018b435de2a8d377f893583910613a646596f2cdce53b6ab.css?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/search.self-6f54a75e5f402fb1aaa4e207bc7da2f5bb81c9e1ee96710f6ddf3bc6d63bc00f.css?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/masonry.self-68ecd902f7d1d41dada96c76c371d0509b637ab720c6800e939a45879e873a38.js?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/users.self-f6779245bc38f80637ddf7c79ed6eecd37290798c136ff57f6da605fdab116bf.css?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/application.self-b0d8864aeeef985ccae71fa5bdd066a8c74aee66934198a41951cd6930aee7a0.css?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-09-27 08:49:52 -0400
+
+
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for ::1 at 2016-09-27 08:49:53 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-27 08:49:53 -0400
+
+
+Started GET "/assets/masonry/jquery.masonry.self-e55a2ca40f0bd20129930439c10a6b8c5dd26787b41fd8427db5b9da8c2af52f.js?body=1" for ::1 at 2016-09-27 08:49:53 -0400
+
+
+Started GET "/assets/cocoon.self-6874ad698cefd21cc1119b773550f61b5c1a60396460f015222af59293affe80.js?body=1" for ::1 at 2016-09-27 08:49:53 -0400
+
+
+Started GET "/assets/comments.self-ad8a0d7dddd6a5ee492a9742244f69e7d1fd2cce03186ed0a579f13ae394c194.js?body=1" for ::1 at 2016-09-27 08:49:53 -0400
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2016-09-27 08:49:53 -0400
+
+
+Started GET "/" for ::1 at 2016-09-27 08:49:54 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (12.6ms)
+  Rendered recipes/index.html.erb within layouts/application (15.4ms)
+  Rendered shared/_navigation.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 79ms (Views: 77.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:50:26 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (86.0ms)
+  Rendered recipes/index.html.erb within layouts/application (107.8ms)
+  Rendered shared/_navigation.html.erb (2.9ms)
+  Rendered shared/_footer.html.erb (0.7ms)
+Completed 200 OK in 627ms (Views: 605.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/masonry/transitions.self-a7dd920491429cc09dda36f003350cf98f5cec3c45d00888fab83293dce6ce92.css?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/devise.self-02d4edf54aedc35c83621a8b84b34335f090fa31cc538e1303022d30b00cca81.css?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/static.self-3ed7080746724459018b435de2a8d377f893583910613a646596f2cdce53b6ab.css?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/recipes.self-8ab832b9a1017cd511e130150c2f532f5135c69b4781e1c2d5e54fdf4b243273.css?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/search.self-6f54a75e5f402fb1aaa4e207bc7da2f5bb81c9e1ee96710f6ddf3bc6d63bc00f.css?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/admin.self-4ec2c5d08f51872fb5cfd6f340b72cc63f62bb01c142c5d0cea36837329aeaa2.css?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/users.self-f6779245bc38f80637ddf7c79ed6eecd37290798c136ff57f6da605fdab116bf.css?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/application.self-b0d8864aeeef985ccae71fa5bdd066a8c74aee66934198a41951cd6930aee7a0.css?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/masonry/jquery.masonry.self-e55a2ca40f0bd20129930439c10a6b8c5dd26787b41fd8427db5b9da8c2af52f.js?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/cocoon.self-6874ad698cefd21cc1119b773550f61b5c1a60396460f015222af59293affe80.js?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/comments.self-ad8a0d7dddd6a5ee492a9742244f69e7d1fd2cce03186ed0a579f13ae394c194.js?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/masonry.self-68ecd902f7d1d41dada96c76c371d0509b637ab720c6800e939a45879e873a38.js?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2016-09-27 08:50:27 -0400
+
+
+Started GET "/" for ::1 at 2016-09-27 08:51:33 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (11.0ms)
+  Rendered recipes/index.html.erb within layouts/application (12.8ms)
+  Rendered shared/_navigation.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 135ms (Views: 133.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/masonry/transitions.self-a7dd920491429cc09dda36f003350cf98f5cec3c45d00888fab83293dce6ce92.css?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/admin.self-4ec2c5d08f51872fb5cfd6f340b72cc63f62bb01c142c5d0cea36837329aeaa2.css?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/recipes.self-8ab832b9a1017cd511e130150c2f532f5135c69b4781e1c2d5e54fdf4b243273.css?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/masonry.self-00f30cf54c1747990acacb0eff311011bbc22ddaa2ab7a39151eba40b0c2fdd3.js?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/search.self-6f54a75e5f402fb1aaa4e207bc7da2f5bb81c9e1ee96710f6ddf3bc6d63bc00f.css?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/devise.self-02d4edf54aedc35c83621a8b84b34335f090fa31cc538e1303022d30b00cca81.css?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/users.self-f6779245bc38f80637ddf7c79ed6eecd37290798c136ff57f6da605fdab116bf.css?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/application.self-b0d8864aeeef985ccae71fa5bdd066a8c74aee66934198a41951cd6930aee7a0.css?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/static.self-3ed7080746724459018b435de2a8d377f893583910613a646596f2cdce53b6ab.css?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/masonry/jquery.masonry.self-e55a2ca40f0bd20129930439c10a6b8c5dd26787b41fd8427db5b9da8c2af52f.js?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/comments.self-ad8a0d7dddd6a5ee492a9742244f69e7d1fd2cce03186ed0a579f13ae394c194.js?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/assets/cocoon.self-6874ad698cefd21cc1119b773550f61b5c1a60396460f015222af59293affe80.js?body=1" for ::1 at 2016-09-27 08:51:33 -0400
+
+
+Started GET "/" for ::1 at 2016-09-27 08:51:48 -0400
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (8.1ms)
+  Rendered recipes/index.html.erb within layouts/application (9.7ms)
+  Rendered shared/_navigation.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 129ms (Views: 127.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/masonry/transitions.self-a7dd920491429cc09dda36f003350cf98f5cec3c45d00888fab83293dce6ce92.css?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/admin.self-4ec2c5d08f51872fb5cfd6f340b72cc63f62bb01c142c5d0cea36837329aeaa2.css?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/devise.self-02d4edf54aedc35c83621a8b84b34335f090fa31cc538e1303022d30b00cca81.css?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/users.self-f6779245bc38f80637ddf7c79ed6eecd37290798c136ff57f6da605fdab116bf.css?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/recipes.self-8ab832b9a1017cd511e130150c2f532f5135c69b4781e1c2d5e54fdf4b243273.css?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/application.self-b0d8864aeeef985ccae71fa5bdd066a8c74aee66934198a41951cd6930aee7a0.css?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/search.self-6f54a75e5f402fb1aaa4e207bc7da2f5bb81c9e1ee96710f6ddf3bc6d63bc00f.css?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/static.self-3ed7080746724459018b435de2a8d377f893583910613a646596f2cdce53b6ab.css?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/masonry.self-323f62589486863741431de14885afbdaa4dbb58c6b73af23f2eb46da0be3832.js?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/jquery.turbolinks.self-176b9819f30444d441e820bbccd3264fe57753aeafd54dec732b0dbc77129a2a.js?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/masonry/jquery.masonry.self-e55a2ca40f0bd20129930439c10a6b8c5dd26787b41fd8427db5b9da8c2af52f.js?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/cocoon.self-6874ad698cefd21cc1119b773550f61b5c1a60396460f015222af59293affe80.js?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/comments.self-ad8a0d7dddd6a5ee492a9742244f69e7d1fd2cce03186ed0a579f13ae394c194.js?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for ::1 at 2016-09-27 08:51:48 -0400
+
+
+Started GET "/" for ::1 at 2016-09-27 08:51:52 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.5ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (9.4ms)
+  Rendered recipes/index.html.erb within layouts/application (12.2ms)
+  Rendered shared/_navigation.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:51:53 -0400
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (7.9ms)
+  Rendered recipes/index.html.erb within layouts/application (9.6ms)
+  Rendered shared/_navigation.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 60ms (Views: 58.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/about" for ::1 at 2016-09-27 08:51:55 -0400
+Processing by StaticController#about as HTML
+  Rendered static/about.html.erb within layouts/application (0.3ms)
+  Rendered shared/_navigation.html.erb (1.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 85ms (Views: 84.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:51:57 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (9.6ms)
+  Rendered recipes/index.html.erb within layouts/application (13.2ms)
+  Rendered shared/_navigation.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 68ms (Views: 66.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for ::1 at 2016-09-27 08:51:59 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "recipes" INNER JOIN "favorite_recipes" ON "recipes"."id" = "favorite_recipes"."recipe_id" WHERE "favorite_recipes"."user_id" = ?  [["user_id", 1]]
+  Rendered users/_user_bricks.html.erb (27.5ms)
+  Rendered users/index.html.erb within layouts/application (29.0ms)
+  Rendered shared/_navigation.html.erb (0.8ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 85ms (Views: 83.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:52:05 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (9.9ms)
+  Rendered recipes/index.html.erb within layouts/application (11.5ms)
+  Rendered shared/_navigation.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 64ms (Views: 62.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1/recipes/1" for ::1 at 2016-09-27 08:52:06 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ? AND "recipes"."id" = ? LIMIT 1[0m  [["user_id", 1], ["id", 1]]
+  [1m[35mAllergen Load (1.2ms)[0m  SELECT "allergens".* FROM "allergens" INNER JOIN "recipe_allergens" ON "allergens"."id" = "recipe_allergens"."allergen_id" WHERE "recipe_allergens"."recipe_id" = ?  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.3ms)[0m  [1mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  Rendered recipes/show.html.erb within layouts/application (26.0ms)
+  Rendered shared/_navigation.html.erb (0.6ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 99ms (Views: 86.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/recipes/1.json" for ::1 at 2016-09-27 08:52:08 -0400
+Processing by RecipesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mRecipe Load (0.3ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1  [["id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+[active_model_serializers]   [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = ?  [["recipe_id", 1]]
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (14.87ms)
+Completed 200 OK in 41ms (Views: 33.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:52:11 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.2ms)[0m  [1mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (9.9ms)
+  Rendered recipes/index.html.erb within layouts/application (11.6ms)
+  Rendered shared/_navigation.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 82ms (Views: 80.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/login" for ::1 at 2016-09-27 08:52:19 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (41.2ms)
+  Rendered shared/_navigation.html.erb (1.1ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 138ms (Views: 134.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2016-09-27 08:52:21 -0400
+
+
+Started GET "/users/auth/facebook/callback?code=AQCiuj7SG6IQdaL_DIXvdtgoL1DV4I7FeP2gubxFSa15dfbX1fhKc9mBjLJCq-MDWF3P0HFCzG8xO2crXY7I5tYsBXzp3MH3j6FImWHbxsOAdhjMPXI-gl4zPTNN8BU7954G7WSCceRiVLsHSfcXZPIlAEPV9_TTAd5Na0JdUALMK9IKcM7YP1n4m1wR7JXBigumjM99pb9qcl3rab6RNUATr8pEByoXxdxrfnTVSZ621LCPN0LG0FgoXHJZizG--90WikvuCPOUFSmgOiAjfWZjep47Do_bjAplHTWqualZ2oB8jD_Gzu6FDNc-EqfNybYOI_KgKbTtBGgJlJQTcCHLu6oFoRxghoBTblpmSMtxhQ&state=bbeacb6ae4fa199fc5ecc3014ad617dc09fdc27f5d349173" for ::1 at 2016-09-27 08:52:22 -0400
+Processing by Users::OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQCiuj7SG6IQdaL_DIXvdtgoL1DV4I7FeP2gubxFSa15dfbX1fhKc9mBjLJCq-MDWF3P0HFCzG8xO2crXY7I5tYsBXzp3MH3j6FImWHbxsOAdhjMPXI-gl4zPTNN8BU7954G7WSCceRiVLsHSfcXZPIlAEPV9_TTAd5Na0JdUALMK9IKcM7YP1n4m1wR7JXBigumjM99pb9qcl3rab6RNUATr8pEByoXxdxrfnTVSZ621LCPN0LG0FgoXHJZizG--90WikvuCPOUFSmgOiAjfWZjep47Do_bjAplHTWqualZ2oB8jD_Gzu6FDNc-EqfNybYOI_KgKbTtBGgJlJQTcCHLu6oFoRxghoBTblpmSMtxhQ", "state"=>"bbeacb6ae4fa199fc5ecc3014ad617dc09fdc27f5d349173"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "antonio.david@alumni.upenn.edu"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_sign_in_at", "2016-09-27 12:52:23.180868"], ["sign_in_count", 2], ["updated_at", "2016-09-27 12:52:23.181992"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/login
+Completed 302 Found in 8ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/users/login" for ::1 at 2016-09-27 08:52:23 -0400
+Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:52:23 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (12.1ms)
+  Rendered recipes/index.html.erb within layouts/application (14.6ms)
+  Rendered shared/_navigation.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 68ms (Views: 66.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1/recipes/1" for ::1 at 2016-09-27 08:52:27 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mRecipe Load (0.1ms)[0m  SELECT  "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ? AND "recipes"."id" = ? LIMIT 1  [["user_id", 1], ["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mRecipe Exists (0.2ms)[0m  SELECT  1 AS one FROM "recipes" INNER JOIN "favorite_recipes" ON "recipes"."id" = "favorite_recipes"."recipe_id" WHERE "favorite_recipes"."user_id" = ? AND "recipes"."id" = ? LIMIT 1  [["user_id", 1], ["id", 1]]
+  [1m[36mAllergen Load (0.1ms)[0m  [1mSELECT "allergens".* FROM "allergens" INNER JOIN "recipe_allergens" ON "allergens"."id" = "recipe_allergens"."allergen_id" WHERE "recipe_allergens"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[35mIngredient Load (0.1ms)[0m  SELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?  [["recipe_id", 1]]
+  Rendered comments/_form.html.erb (4.8ms)
+  Rendered recipes/show.html.erb within layouts/application (27.8ms)
+  Rendered shared/_navigation.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.2ms)
+Completed 200 OK in 93ms (Views: 89.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/recipes/1.json" for ::1 at 2016-09-27 08:52:32 -0400
+Processing by RecipesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mRecipe Load (0.1ms)[0m  [1mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+[active_model_serializers]   [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = ?  [["recipe_id", 1]]
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (6.14ms)
+Completed 200 OK in 12ms (Views: 8.6ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/users/logout" for ::1 at 2016-09-27 08:52:38 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fJsNM1tVnoTjI2jEfSlGRU8POGrk1ASwWP1XKcWccJPkLhcSy0Fku3GA8ddv/yjouaLQDSNv7F4WacOY+QYWWQ=="}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2016-09-27 08:52:38 -0400
+Processing by RecipesController#index as HTML
+  [1m[35mRecipe Load (0.2ms)[0m  SELECT "recipes".* FROM "recipes"
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 1], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL[0m  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "t"]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = ? AND "votes"."votable_type" = ? AND "votes"."vote_flag" = ? AND "votes"."vote_scope" IS NULL  [["votable_id", 2], ["votable_type", "Recipe"], ["vote_flag", "f"]]
+  Rendered recipes/_recipe_bricks.html.erb (9.0ms)
+  Rendered recipes/index.html.erb within layouts/application (10.7ms)
+  Rendered shared/_navigation.html.erb (0.5ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 63ms (Views: 61.8ms | ActiveRecord: 0.7ms)
