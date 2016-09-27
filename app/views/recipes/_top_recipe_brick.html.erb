@@ -10,7 +10,12 @@
     <div class="user">
       <div class="row">
         <div class="col-md-6">
-          Submitted by <%= recipe.user.name %>              
+          Submitted by               
+          <% if recipe.user.name == nil %>
+            Anonymous Chef
+          <% else %>  
+            <%= recipe.user.name %>              
+          <% end %>              
         </div>
         <div class="col-md-6">
           <!-- acts as votable -->
