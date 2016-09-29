@@ -16,11 +16,11 @@ You may browse the index of recipes and community of users without logging in or
 To contribute a recipe, you will need to sign up or login. Sign up with an email and password or take the simple route by using your Facebook account.
 
 == Contributing
-1. Fork it (https://github.com/agdavid/allergy-free-meals-rails-application/fork)
+1. Fork it (https://github.com/agdavid/apprentice-antonio-david-homepage)
 2. Create your feature branch (<tt>git checkout -b my-new-feature</tt>)
 3. Commit your changes (<tt>git commit -am 'Add some feature'</tt>)
 4. Push to the branch (<tt>git push origin my-new-feature</tt>)
 5. Create a new Pull Request
 
 == License
-This project was created as part of the curriculum of Learn.co which is publicly and freely available under {Learn's Educational Content License}[https://learn.co/content-license].
+This project was created as part of a coding challenge and is publicly and freely available under {Learn's Educational Content License}[https://learn.co/content-license].
