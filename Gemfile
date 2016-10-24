@@ -51,6 +51,10 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
+  # Use for testing
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'database_cleaner'
 end
 
 group :production do 
