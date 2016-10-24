@@ -11,7 +11,7 @@ describe Allergen do
     end
 
     context "it instantiates a new Allergen" do 
-        it "creates a new Allergen instance" do
+        it "creates a valid Allergen" do
             expect(@allergen).to be_valid 
             expect(@allergen).to be_an_instance_of(Allergen)
         end
